@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><!-- site responsive-->
+    	<meta name="description" content="Groot">
+    	<meta name="author" content="Marion Dalifard, Helouri Beucherie, Uriel Sambiani">
+		<title>Groot</title>
+		<!--  CSS -->
+    	<link href="./css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="./css/groot.css" >
+  	</head>
+
+  	<body>
+
+		<div class="sliderHead text-center"> <!-- Décalage de la barre nav (groot.css)-->
+			<img class="img-responsive" src="./image/Logo.png"> <!-- (groot.css)logo au premier plan-->
+		</div>
+
+		<nav class="navbar navbar-expand-md navbar-dark"><!-- Permet de condensé le menu en petit réponsivité-->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <!-- Permet d'afficher la petite icon avec les buttons nav qui défile quand tu clic quand l'écran est petit -->
+				<div class="navbar-toggler-icon"></div>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto d-block d-sm-none"> <!--Bouton qui s'affiche sur petit écran (d-sm-none) pour décaler le menu du logo-->
+					<li class="nav-item active">
+						<a class="nav-link"><button type="button" class="btn btn-dark"></button></a>
+					</li>
+				</ul>
+				<ul class="navbar-nav mr-auto d-block d-sm-none"> <!--Bouton qui s'affiche sur petit écran (d-sm-none) pour décaler le menu du logo-->
+					<li class="nav-item active">
+						<a class="nav-link"><button type="button" class="btn btn-dark"></button></a>
+					</li>
+				</ul>
+				<ul class="navbar-nav mr-auto"><!--Bouton de création d'événement-->
+					<li class="nav-item active">
+						<a class="nav-link" href="#" id = "gauche"><button type="button" class="btn btn-dark" data-toggle="modal" onclick="testConnecte();">Créer un évennement</button></a> <!-- testConnecte pour savoir si on est connecté -->
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto"><!--Bouton d'inscrition connection-->
+					<li class="nav-item">
+						<a class="nav-link" href="#" id = "droite"><button type="button" class="btn  btn-dark" data-toggle="modal" data-target="#loginModal" id="connecte">Se connecter - Inscription</button></a> <!-- data-target rend la fenêtre modal visible avec l'id, sans passer par une fonction java script-->
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+	  		<div class="row">
+				<div class="col-lg-3 "> <!-- colonne de 3/12-->
+		 			<form>
+		  				<div class="card h-100 mt-5"> <!-- h-100 permet que la card s'agrandisse selon le contenu -->
+							<div class="modal-header bg-light"> <!-- header de la card avec couleur background-->
+			  					<h1 class="my-4">Recherche</h1>
+							</div>
+							<div class="card-body" > <!-- Body de la card-->
+			  					<div class="form-group">
+									<div class="col"> <!-- groupement texte label en ligne-->
+				  						<input type="radio" name="radio" id="ckAucun" checked><!-- bouton check-->
+				  						<label for="aucun">Aucune</label>
+									</div>
+									<div class="col">
+				 						<input type="radio" name="radio" id="ckAvant">
+				  						<label for="dateAvant">Avant la date</label>
+									</div>
+									<input class="form-control" type="date" value="2020-08-19" id="dateAvant"><!-- choix de la date-->
+			  					</div>
+			  					<div class="form-group">
+									<div class="col">
+				  						<input type="radio" name="radio" id="ckApres">
+				  						<label for="dateApres">Après la date</label>
+									</div>
+									<input class="form-control" type="date" value="2020-08-19" id="dateApres">
+			  					</div>
+			  					<div class="form-group">
+									<div class="col">
+				  						<input type="radio" name="radio" id="ckEntre">
+				  						<label for="entre">Entre les 2 dates</label>
+									</div>
+			  					</div>
+			  					<div class="form-group">
+									<label for="formTitre">Titre</label>
+									<input type="text" class="form-control" id="formTitre" placeholder=""><!-- champ texte-->
+			  					</div>
+			  					<div class="form-group">
+									<label for="formLieu">Lieu</label>
+									<input type="text" class="form-control" id="formLieu" placeholder="">
+			 					</div>
+			  					<div class="form-group">
+									<label for="formDescription">Description</label>
+									<input type="text" class="form-control" id="formDescription" placeholder="">
+			  					</div>
+			  					<div class="form-group"><!-- menu sélection-->
+									<label for="selection1">Choix 1 icone</label>
+									<select id="icone1" class="form-control">
+				  						<option value="">Liste de choix...</option>
+				  						<optgroup label="Option1">
+											<option value="ouaf_ouaf.png">Dressage</option>
+											<option value="felin.png">Felin</option>
+											<option value="toilettage.png">Toilettage</option>
+											<option value="soiree.png">Soirée</option>
+											<option value="salon.png">Salon</option>
+											<option value="concours.png">Concours</option>
+				  						</optgroup>
+									</select>
+			  					</div>
+			  					<div class="form-group">
+									<label for="selection2">Choix 2 icone</label>
+									<select id="icone2" class="form-control">
+				  						<option value="">Liste de choix...</option>
+				  						<optgroup label="Option2">
+											<option value="ouaf_ouaf.png">Dressage</option>
+											<option value="felin.png">Felin</option>
+											<option value="toilettage.png">Toilettage</option>
+											<option value="soiree.png">Soirée</option>
+											<option value="salon.png">Salon</option>
+											<option value="concours.png">Concours</option>
+				  						</optgroup>
+									</select>
+			  					</div>
+							</div>
+							<div class="card-footer"><!-- footer de la card-->
+			  					<div class="col align-self-center offset-md-2">
+									<button type="button" class="btn btn-primary" onclick="recherche();">Recherche</button>
+			  					</div>
+							</div>
+		  				</div>
+		 			</form>
+				</div>
+      			<div class="col-lg-9"> <!-- colonne de 9/12-->
+        			<div id="carouselIndicators" class="carousel slide my-4" data-ride="carousel"> <!-- Carousel-->
+          				<ol class="carousel-indicators">
+            				<li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
+            				<li data-target="#carouselIndicators" data-slide-to="1"></li>
+           			 		<li data-target="#carouselIndicators" data-slide-to="2"></li>
+         		 		</ol>
+          				<div class="carousel-inner" role="listbox">
+            				<div class="carousel-item active">
+              					<img class="d-block img-fluid" src="./image/pub.png" alt="First slide">
+            				</div>
+            				<div class="carousel-item">
+              					<img class="d-block img-fluid" src="./image/pub.png" alt="Second slide">
+            				</div>
+            				<div class="carousel-item">
+              					<img class="d-block img-fluid" src="./image/pub.png" alt="Third slide">
+            				</div>
+          				</div>
+          				<a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
+            				<div class="carousel-control-prev-icon bg-secondary" aria-hidden="true"></div>
+            				<div class="sr-only">Previous</div>
+          				</a>
+          				<a class="carousel-control-next" href="#carouselIndicators" role="button" data-slide="next">
+            				<div class="carousel-control-next-icon bg-secondary" aria-hidden="true"></div>
+            				<div class="sr-only">Next</div>
+          				</a>
+        			</div>
+	    			<div class="row" id='body1'><!-- Body contenant les fiches événement-->
+		  				<span class="col-lg-4 col-md-6 mb-4"> <!-- span événement avec taille en fonction de l'écran-->
+            				<div class="card h-100">
+              					<a href="#"><img class="card-img-top ml-0" src="./image/vignette_ouaf_ouaf.png" alt=""></a><!-- vignette événement -->
+			  					<div class="card-img-overlay d-flex align-items-start"> <!-- bouton fermeture événement sur l'image -->
+		        					<button type="button" class="close" data-toggle="modal" aria-label="Close">
+				 						<div aria-hidden="true" class="fiche">&times;</div>	 <!--&times code de la croix -->		
+									</button>
+			  					</div>
+              					<div class="card-body" >
+			    					<div class="row">
+				  						<div class="col-md-8"><!-- colonne de 8/12-->
+											<h4 class="card-title text-info"><!-- titre événement-->
+					  							<a>Journée Dressage!</a>
+											</h4>
+				  						</div>
+				  						<div class="col-2 col-sm-2 col-md-4"><!-- colonne de 4/12 grand écran-->
+											<img class="img-fluid" src="./image/ouaf_ouaf.png"><!-- image logo événement-->
+				  						</div>
+									</div>
+                					<h5>Dourdan 91410</h5><!-- lieu événement-->
+                					<p class="card-text">Venez rencontrer d'autres maîtres, tout en apprenant à votre chien à être le plus gentil des toutous!</p><!-- descrition événement-->
+			  					</div>
+              					<div class="card-footer"><!-- footer avec date début et fin-->
+			  						<div class="row">
+				  						<div class="col">
+											<small class="text-muted float-left">Début</small><!-- small petite taille-->
+				  						</div>
+				  						<div class="col">
+											<small class="text-muted float-right">Fin</small>
+				  						</div>
+									</div>
+			  						<div class="row">
+				  						<div class="col">
+											<small class="text-muted float-left">2020-05-02</small>
+				  						</div>
+				  						<div class="col">
+											<small class="text-muted float-right">2020-05-02</small>
+				  						</div>
+									</div>
+              					</div>
+            				</div>
+		  				</span>
+		  				<span class="col-lg-4 col-md-6 mb-4">
+            				<div class="card h-100">
+              					<a href="#"><img class="card-img-top ml-0" src="./image/vignette_felin.png" alt=""></a>
+			  					<div class="card-img-overlay d-flex align-items-start">
+		        					<button type="button" class="close" data-toggle="modal" aria-label="Close">
+				  						<div aria-hidden="true" class="fiche">&times;</div>		
+									</button>
+			  					</div>
+              					<div class="card-body" >
+			    					<div class="row">
+				  						<div class="col-md-8">
+											<h4 class="card-title text-info">
+					  							<a>Patoune - Adoption </a>
+											</h4>
+				  						</div>
+				  						<div class="col-2 col-sm-2 col-md-4">
+											<img class="img-fluid" src="./image/felin.png">
+				  						</div>
+									</div>
+                					<h5>Lille</h5>
+                					<p class="card-text">L'adoption est la meilleure façon d'aider un chat abandonné à trouver une nouvelle vie. <br />Venez nous voir ils n'attendent que vous !</p>
+			  					</div>
+              					<div class="card-footer">
+			  						<div class="row">
+				  						<div class="col">
+											<small class="text-muted float-left">Début</small>
+				  						</div>
+				  						<div class="col">
+											<small class="text-muted float-right">Fin</small>
+				  						</div>
+									</div>
+			  						<div class="row">
+				  						<div class="col">
+											<small class="text-muted float-left">2020-06-01</small>
+				  						</div>
+				  						<div class="col">
+											<small class="text-muted float-right">2020-06-06</small>
+				  						</div>
+									</div>
+              					</div>
+            				</div>
+		  				</span>
+						<span class="col-lg-4 col-md-6 mb-4">
+            				<div class="card h-100">
+              					<a href="#"><img class="card-img-top ml-0" src="./image/vignette_toilettage.png" alt=""></a>
+			  					<div class="card-img-overlay d-flex align-items-start">
+		        					<button type="button" class="close" data-toggle="modal" aria-label="Close">
+										<div aria-hidden="true" class="fiche">&times;</div>		
+			  						</button>
+			  					</div>
+              					<div class="card-body" >
+			    					<div class="row">
+				  						<div class="col-md-8">
+											<h4 class="card-title text-info">
+					  							<a>La Coupe Au Poil</a>
+											</h4>
+				  						</div>
+				  						<div class="col-2 col-sm-2 col-md-4">
+											<img class="img-fluid" src="./image/toilettage.png">
+				 	 					</div>
+									</div>
+                					<h5>La Cerlangue</h5>
+                					<p class="card-text">Dans une ambiance chaleureuse et conviviale, nous accueillons votre chien et votre chat pour leur apporter tous les soins indispensables à leur confort. Promotion pendant 1 mois</p>
+			  					</div>
+              					<div class="card-footer">
+			  						<div class="row">
+				  						<div class="col">
+											<small class="text-muted float-left">Début</small>
+				  						</div>
+				  						<div class="col">
+											<small class="text-muted float-right">Fin</small>
+				  						</div>
+									</div>
+			  						<div class="row">
+				  						<div class="col">
+											<small class="text-muted float-left">2020-06-29</small>
+				  						</div>
+				  						<div class="col">
+											<small class="text-muted float-right">2020-07-31</small>
+				  						</div>
+									</div>
+              					</div>
+            				</div>
+		  				</span>
+		  				<span class="col-lg-4 col-md-6 mb-4">
+            				<div class="card h-100">
+              					<a href="#"><img class="card-img-top ml-0" src="./image/vignette_concours.png" alt=""></a>
+			  					<div class="card-img-overlay d-flex align-items-start">
+		        					<button type="button" class="close" data-toggle="modal" aria-label="Close">
+										<div aria-hidden="true" class="fiche">&times;</div>		
+			  						</button>
+			  					</div>
+              					<div class="card-body" >
+			    					<div class="row">
+				  						<div class="col-md-8">
+											<h4 class="card-title text-info">
+					  							<a>Bêtes de concours</a>
+											</h4>
+				  						</div>
+				  						<div class="col-2 col-sm-2 col-md-4">
+											<img class="img-fluid" src="./image/concours.png">
+				  						</div>
+									</div>
+                					<h5>Paris porte de versailles</h5>
+                					<p class="card-text">Venez participer aux concours général des animaux de compagnie. <br />Un week-end incontournable pour tous les passionnés</p>
+			  					</div>
+              					<div class="card-footer">
+			  						<div class="row">
+				  						<div class="col">
+											<small class="text-muted float-left">Début</small>
+				  						</div>
+				  						<div class="col">
+											<small class="text-muted float-right">Fin</small>
+				  						</div>
+									</div>
+			  						<div class="row">
+				  						<div class="col">
+											<small class="text-muted float-left">2020-09-12</small>
+				 		 				</div>
+				  						<div class="col">
+											<small class="text-muted float-right">2020-09-13</small>
+				  						</div>
+									</div>
+              					</div>
+            				</div>
+		  				</span>
+		  				<span class="col-lg-4 col-md-6 mb-4">
+            				<div class="card h-100">
+              					<a href="#"><img class="card-img-top ml-0" src="./image/vignette_salon.png" alt=""></a>
+			  					<div class="card-img-overlay d-flex align-items-start">
+		        					<button type="button" class="close" data-toggle="modal" aria-label="Close">
+										<div aria-hidden="true" class="fiche">&times;</div>		
+			  						</button>
+			  					</div>
+              					<div class="card-body" >
+			    					<div class="row">
+				  						<div class="col-md-8">
+											<h4 class="card-title text-info">
+					  							<a>Rencontre Chat</a>
+											</h4>
+				  						</div>
+				  						<div class="col-2 col-sm-2 col-md-4">
+											<img class="img-fluid" src="./image/salon.png">
+				  						</div>
+									</div>
+                					<h5>Lyon</h5>
+                					<p class="card-text">Nous accueillons exceptionnelement durant 15 jours de sublimes matous? Venez dans notre salon déguster un excellent café tout en ayant pour comme voisin de table un adorable chat.</p>
+			  					</div>
+              					<div class="card-footer">
+			  						<div class="row">
+				  						<div class="col">
+											<small class="text-muted float-left">Début</small>
+				  						</div>
+				  						<div class="col">
+											<small class="text-muted float-right">Fin</small>
+				  						</div>
+									</div>
+			  						<div class="row">
+				 				 		<div class="col">
+											<small class="text-muted float-left">2020-10-10</small>
+				  						</div>
+				  						<div class="col">
+											<small class="text-muted float-right">2020-10-24</small>
+				  						</div>
+									</div>
+              					</div>
+            				</div>
+		  				</span>
+		  				<span class="col-lg-4 col-md-6 mb-4">
+            				<div class="card h-100">
+              					<a href="#"><img class="card-img-top ml-0" src="./image/vignette_soiree.png" alt=""></a>
+			  					<div class="card-img-overlay d-flex align-items-start">
+		        					<button type="button" class="close" data-toggle="modal" aria-label="Close">
+				  						<div aria-hidden="true" class="fiche">&times;</div>		
+									</button>
+			  					</div>
+              					<div class="card-body" >
+			    					<div class="row">
+				  						<div class="col-md-8">
+											<h4 class="card-title text-info">
+								 	 			<a>Soiree conférence</a>
+											</h4>
+				 	 					</div>
+				  						<div class="col-2 col-sm-2 col-md-4">
+											<img class="img-fluid" src="./image/soiree.png">
+				  						</div>
+									</div>
+                					<h5>Paris</h5>
+                					<p class="card-text">Nous vous invitons à une soirée conférence, spécialement dédiée aux amateurs de reptiles, experts comme débutants. <br />Nous avons tous quelque chose à apprendre et à partager!</p>
+			  					</div>
+              					<div class="card-footer">
+			  						<div class="row">
+				 		 				<div class="col">
+											<small class="text-muted float-left">Début</small>
+				  						</div>
+				  						<div class="col">
+											<small class="text-muted float-right">Fin</small>
+				  						</div>
+									</div>
+			  						<div class="row">
+				 	 					<div class="col">
+											<small class="text-muted float-left">2020-11-03</small>
+				  						</div>
+				  						<div class="col">
+											<small class="text-muted float-right">2020-11-03</small>
+				  						</div>
+									</div>
+              					</div>
+            				</div>
+		  				</span>
+        			</div>
+        		</div>
+      		</div>
+    	</div>
+		<div class="sliderFoot text-center mt-5"> <!-- Footer -->
+	  		<p>&nbsp</p>
+	  		<small class="text-white">Copyright &copy; Helouri Beucherie, Marion Dalifard, Uriel Sambiani</small>
+	  		<p><small class="text-white"><a href="#" data-toggle="modal" data-target="#contactModal">Nous contacter</a></small></p>
+		</div>
+
+  		<!--code modal de la fenêtre suppression événement-->
+  		<div class="modal fade" id="supprimeModal" tabindex="-1" role="dialog" aria-labelledby="supprimeModalLabel" aria-hidden="true">
+    		<div class="modal-dialog modal-dialog-centered" role="document">
+     		 	<div class="modal-content">
+        			<div class="modal-header">
+	      				<h4 class="modal-title w-100 font-weight-bold" id="exampleModalLabel">Attention</h4>
+          				<button type="button" class="btn float-right bg-info" onclick="resetClose();" data-dismiss="modal" aria-label="Close"> <!-- data-dismiss permet de fermer la modal-->
+            				<div aria-hidden="true">&times;</div>
+          				</button>
+        			</div>
+        			<div class="modal-body">
+          				Voulez-vous vraiment supprimer cette événement?
+        			</div>
+        			<div class="modal-footer">
+          				<button type="button" class="btn btn-secondary" onclick="resetClose();" data-dismiss="modal">non</button>
+          				<button type="button" class="btn btn-primary" onclick="supFicheTab();" data-dismiss="modal">oui</button>
+       	 			</div>
+      			</div>
+    		</div>
+  		</div>
+
+		<!--code modal de la fenêtre créer un événement-->
+		<div class="modal fade" id="formulaireModal" tabindex="-1" role="dialog" aria-labelledby="formulaireModalLabel" aria-hidden="true">
+  			<div class="modal-dialog modal-dialog-centered" role="document">
+    			<div class="modal-content">
+      				<div class="modal-header">
+	    				<h4 class="modal-title w-100 font-weight-bold" id="formulaireModalLabel">Création d'évennement</h4>
+        				<button type="button" class="btn float-right bg-info" data-dismiss="modal" aria-label="Close">
+          					<div aria-hidden="true">&times;</div>
+        				</button>
+      				</div>
+      				<div class="modal-body">
+        				<div class="form-group">
+          					<label for="titre">Titre</label>
+          					<input type="text" class="form-control" id="titre" placeholder="">
+        				</div>
+						<div class="form-group">
+          					<label for="fichier">Vignette de l'évennement</label>
+          					<input type="file" class="form-control-file" id="fichier">
+        				</div>
+        				<div class="form-group">
+            				<label for="selection">Icone de l'évennement</label>
+            				<select id="icone" class="form-control">
+                				<option value="ouaf_ouaf.png">Dressage</option>
+                				<option value="felin.png">Felin</option>
+                				<option value="toilettage.png">Toilettage</option>
+								<option value="soiree.png">Soirée</option>
+               			 		<option value="salon.png">Salon</option>
+                				<option value="concours.png">Concours</option>
+            				</select>
+        				</div>
+						<div class="form-group">
+          					<label for="lieu">Lieu</label>
+          					<input type="text" class="form-control" id="lieu" placeholder="">
+        				</div>
+						<div class="form-group">
+         					<label for="description">Description</label>
+          					<textarea class="form-control" id="description" rows="5"></textarea>
+        				</div>
+						<div class="form-group">
+		  					<label for="dateDebut">Date de début</label>
+		  					<input class="form-control" type="date" value="2020-08-19" id="dateDebut">
+						</div>
+						<div class="form-group">
+		  					<label for="dateFin">Date de fin</label>
+		  					<input class="form-control" type="date" value="2020-08-19" id="dateFin">
+						</div>
+     			 	</div>
+      				<div class="modal-footer">
+	    				<button type="button" class="btn btn-primary" onclick="addFiche();" data-dismiss="modal">créer</button>
+        				<button type="button" class="btn btn-secondary" data-dismiss="modal">fermer</button>
+      				</div>
+    			</div>
+  			</div>
+		</div>
+
+		<!--code modal de la fenêtre connection inscription-->
+		<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  			<div class="modal-dialog modal-dialog-centered" role="document">
+    			<div class="modal-content">
+      				<div class="modal-header">
+        				<h4 class="modal-title w-100 font-weight-bold">Connection-Inscription</h4>
+        				<button type="button" class="btn float-right bg-info" data-dismiss="modal" aria-label="Close">
+          					<div aria-hidden="true">&times;</div>
+        				</button>
+      				</div>
+	  				<div class="modal-body">
+	  					<form name="form">
+							<div class="form-group">
+		  						<label for="defaultForm-id">Identifiant</label>
+		  						<input type="text" name="identifiant" id="identifiant" class="form-control" maxlength="15">
+        					</div>
+							<div class="form-group">
+		  						<label for="defaultForm-pass">Mot de passe</label>
+          						<input type="password" name="passe" id="passe" class="form-control">
+        					</div>
+	  					</form>
+	  				</div>
+      				<div class="modal-footer">
+        				<button type="button" class="btn btn-primary" onclick="connection();" >connection</button>
+						<button type="button" class="btn btn-secondary" onclick="inscription();">inscription</button>
+      				</div> 
+    			</div>
+  			</div>
+		</div>
+
+		<!--code modal de la fenêtre message-->
+		<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true"> <!-- Pop-up message que je réutilise en changeant le message-->
+  			<div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+    			<div class="modal-content border-info">
+	  				<div class="modal-body">
+						<div class="form-group">
+		  					<label for="message" id="message">message</label>
+        				</div>
+	  				</div>
+      				<div class="modal-footer " >		
+	  					<div class="container-fluid">
+							<div class="text-center">
+		  						<button type="button" class="btn btn-secondary" data-dismiss="modal">ok</button>
+        					</div>
+	  					</div>
+	  				</div>
+    			</div>
+  			</div>
+		</div>
+	
+		<!--code modal de la fenêtre formulaire contact-->
+		<div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+  			<div class="modal-dialog modal-dialog-centered" role="document">
+    			<div class="modal-content">
+      				<div class="modal-header">
+	    				<h4 class="modal-title w-100 font-weight-bold" id="formulaireContactModalLabel">Contactez-nous</h4>
+       				 	<button type="button" class="btn float-right bg-info" data-dismiss="modal" aria-label="Close">
+          					<div aria-hidden="true">&times;</div>
+        				</button>
+     	 			</div>
+      				<div class="modal-body">
+       			 		<div class="form-group">
+          					<label for="adresse">Adresse mail</label>
+          					<input type="text" class="form-control" id="adresse" placeholder="">
+        				</div>
+						<div class="form-group">
+          					<label for="nom">Nom</label>
+          					<input type="text" class="form-control" id="nom" placeholder="">
+        				</div>
+						<div class="form-group">
+         			 		<label for="prenom">Prénom</label>
+          					<input type="text" class="form-control" id="prenom" placeholder="">
+        				</div>
+						<div class="form-group">
+          					<label for="prenom">Objet</label>
+          					<input type="text" class="form-control" id="prenom" placeholder="">
+        				</div>
+						<div class="form-group">
+          					<label for="description">Description</label>
+          					<textarea class="form-control" id="description" rows="5"></textarea>
+        				</div>
+     		 		</div>
+      				<div class="modal-footer">
+	    				<button type="button" class="btn btn-primary" data-dismiss="modal">envoyer</button>
+      				</div>
+    			</div>
+  			</div>
+		</div>
+	
+  	</body>
+	
+	<!-- script -->
+	<script src="./js/jquery.min.js"></script>
+	<script src="./js/bootstrap.min.js"></script>
+	<script src="./js/groot.js"></script>
+
+</html>
